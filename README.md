@@ -46,3 +46,4 @@ Sample log html report:
    
 Sample report:
 
+![pytest report](https://github.com/afreenbanu/starwarsapi_tests/assets/8961608/f5ad14c5-4367-4885-86a5-f5746c839d91)
