@@ -23,3 +23,5 @@ Test Suite is implemented in python using [Robotframework](https://robotframewor
    - report.html
    - output.xml
 
+Sample log html report:
+![swapitest_report](https://github.com/afreenbanu/starwarsapi_tests/assets/8961608/f915df39-7d2e-479b-aac8-77e2d0ddb30a)
