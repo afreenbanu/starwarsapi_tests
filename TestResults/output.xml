@@ -1,103 +1,798 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-05-13T12:49:51.274537" rpa="false" schemaversion="5">
-<suite id="s1" name="TestSuite" source="C:\Users\moinm\swapi_test\TestSuite">
-<suite id="s1-s1" name="SWAPITests" source="C:\Users\moinm\swapi_test\TestSuite\SWAPITests.robot">
-<test id="s1-s1-t1" name="7. Verify swapi /people service pagination boundaries" line="65">
+<robot generator="Robot 7.0 (Python 3.12.1 on win32)" generated="2024-05-13T13:37:47.673991" rpa="false" schemaversion="5">
+<suite id="s1" name="TestSuite" source="C:\Users\moinm\starwarsapi_tests\TestSuite">
+<suite id="s1-s1" name="SWAPITests" source="C:\Users\moinm\starwarsapi_tests\TestSuite\SWAPITests.robot">
+<test id="s1-s1-t1" name="1. Verify swapi /people service returns total count of people and 10 results per page" line="15">
 <kw name="Given swapi service is up and running" owner="SWAPIKeywords">
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2024-05-13T12:49:52.207754" level="INFO">GET Request : url=https://swapi.dev/api/people/ 
+<msg time="2024-05-13T13:37:48.817582" level="INFO">GET Request : url=https://swapi.dev/api/people/ 
  path_url=/api/people/ 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2024-05-13T12:49:52.207754" level="INFO">GET Response : url=https://swapi.dev/api/people/ 
+<msg time="2024-05-13T13:37:48.817582" level="INFO">GET Response : url=https://swapi.dev/api/people/ 
  status=200, reason=OK 
- headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 16:49:52 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:48 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
  body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
  </msg>
-<msg time="2024-05-13T12:49:52.207754" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-05-13T13:37:48.817582" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>${swapi_people_url}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-05-13T12:49:51.457490" elapsed="0.750264"/>
+<status status="PASS" start="2024-05-13T13:37:47.884476" elapsed="0.933106"/>
 </kw>
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2024-05-13T12:49:52.208803" level="INFO">Argument types are:
+<msg time="2024-05-13T13:37:48.818574" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.status_code}</arg>
 <arg>200</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-13T12:49:52.208803" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-13T13:37:48.818574" elapsed="0.000999"/>
 </kw>
-<status status="PASS" start="2024-05-13T12:49:51.456489" elapsed="0.752314"/>
+<status status="PASS" start="2024-05-13T13:37:47.884476" elapsed="0.935097"/>
+</kw>
+<kw name="When I send request for people" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:49.649425" level="INFO">GET Request : url=https://swapi.dev/api/people// 
+ path_url=/api/people// 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:49.650421" level="INFO">GET Response : url=https://swapi.dev/api/people// 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:49 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:49.653471" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}/${id}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:48.821574" elapsed="0.831897"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-13T13:37:49.654476" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-13T13:37:49.653471" elapsed="0.001005"/>
+</kw>
+<arg>${EMPTY}</arg>
+<status status="PASS" start="2024-05-13T13:37:48.820573" elapsed="0.833903"/>
+</kw>
+<kw name="Then Service should return valid response code" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:49.657423" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_response_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:49.656422" elapsed="0.001001"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2024-05-13T13:37:49.655426" elapsed="0.001997"/>
+</kw>
+<kw name="AND Service should return correct count of results" owner="SWAPIKeywords">
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-05-13T13:37:49.660422" level="INFO">Length is 10.</msg>
+<msg time="2024-05-13T13:37:49.660422" level="INFO">${results_count} = 10</msg>
+<var>${results_count}</var>
+<arg>${response.json()['results']}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-05-13T13:37:49.659423" elapsed="0.000999"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-05-13T13:37:49.660422" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${results_count}</arg>
+<arg>${results_per_page}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-05-13T13:37:49.660422" elapsed="0.000998"/>
+</kw>
+<arg>10</arg>
+<status status="PASS" start="2024-05-13T13:37:49.658428" elapsed="0.002992"/>
+</kw>
+<kw name="AND total count should be correct" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-05-13T13:37:49.662420" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()['count']}</arg>
+<arg>${total_count_people}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-05-13T13:37:49.661420" elapsed="0.001000"/>
+</kw>
+<arg>82</arg>
+<status status="PASS" start="2024-05-13T13:37:49.661420" elapsed="0.001000"/>
+</kw>
+<doc>Valid request and response assertion</doc>
+<tag>test1</tag>
+<status status="PASS" start="2024-05-13T13:37:47.883475" elapsed="1.778945"/>
+</test>
+<test id="s1-s1-t2" name="2. Verify swapi /people service returns specific people's details when an id is passed in request" line="24">
+<kw name="Given swapi service is up and running" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:50.606570" level="INFO">GET Request : url=https://swapi.dev/api/people/ 
+ path_url=/api/people/ 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:50.606570" level="INFO">GET Response : url=https://swapi.dev/api/people/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:50 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:50.607569" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:49.664420" elapsed="0.943149"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:50.609569" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:50.607569" elapsed="0.002000"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:49.664420" elapsed="0.946151"/>
+</kw>
+<kw name="When I send request for people" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:51.341705" level="INFO">GET Request : url=https://swapi.dev/api/people//1 
+ path_url=/api/people//1 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:51.341705" level="INFO">GET Response : url=https://swapi.dev/api/people//1 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:51 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"ee398610435c328f4d0a4e1b0d2f7bbc"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"} 
+ </msg>
+<msg time="2024-05-13T13:37:51.341705" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}/${id}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:50.613526" elapsed="0.728179"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-13T13:37:51.342778" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.341705" elapsed="0.001073"/>
+</kw>
+<arg>1</arg>
+<status status="PASS" start="2024-05-13T13:37:50.612539" elapsed="0.730239"/>
+</kw>
+<kw name="Then Service should return valid response code" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:51.344779" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_response_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.343721" elapsed="0.001058"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2024-05-13T13:37:51.343721" elapsed="0.002005"/>
+</kw>
+<kw name="AND Service should return correct people information" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['name']}</arg>
+<arg>${name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.347211" elapsed="0.000998"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['birth_year']}</arg>
+<arg>${birth_year}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.348209" elapsed="0.001001"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['gender']}</arg>
+<arg>${gender}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.349210" elapsed="0.000999"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-05-13T13:37:51.351208" level="INFO">Length is 4.</msg>
+<msg time="2024-05-13T13:37:51.351208" level="INFO">${actual_film_count} = 4</msg>
+<var>${actual_film_count}</var>
+<arg>${response.json()['films']}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.350209" elapsed="0.000999"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:51.352208" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual_film_count}</arg>
+<arg>${total_films}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.351208" elapsed="0.003001"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['url']}</arg>
+<arg>${swapi_people_url}${url_id}/</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.354209" elapsed="0.001000"/>
+</kw>
+<arg>Luke Skywalker</arg>
+<arg>19BBY</arg>
+<arg>male</arg>
+<arg>4</arg>
+<arg>1</arg>
+<status status="PASS" start="2024-05-13T13:37:51.346185" elapsed="0.009024"/>
+</kw>
+<doc>Valid people id and response assertion</doc>
+<tag>test1</tag>
+<status status="PASS" start="2024-05-13T13:37:49.663418" elapsed="1.692784"/>
+</test>
+<test id="s1-s1-t3" name="3. Verify swapi /people endpoint returns 404 when searched by invalid people id" line="32">
+<kw name="Given swapi service is up and running" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:52.297123" level="INFO">GET Request : url=https://swapi.dev/api/people/ 
+ path_url=/api/people/ 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:52.297123" level="INFO">GET Response : url=https://swapi.dev/api/people/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:52 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:52.298122" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:51.358218" elapsed="0.939904"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:52.300123" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:52.298122" elapsed="0.002001"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:51.358218" elapsed="0.941905"/>
+</kw>
+<kw name="When I send request for people" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:52.917370" level="INFO">GET Request : url=https://swapi.dev/api/people//1000 
+ path_url=/api/people//1000 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:52.917370" level="INFO">GET Response : url=https://swapi.dev/api/people//1000 
+ status=404, reason=NOT FOUND 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:52 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"8bee5c3ad44d6c57f19e49e8e76ee09e"', 'Allow': 'GET, HEAD, OPTIONS'} 
+ body={"detail":"Not found"} 
+ </msg>
+<msg time="2024-05-13T13:37:52.917370" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}/${id}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:52.303126" elapsed="0.614244"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-13T13:37:52.917370" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-13T13:37:52.917370" elapsed="0.000000"/>
+</kw>
+<arg>1000</arg>
+<status status="PASS" start="2024-05-13T13:37:52.302126" elapsed="0.615244"/>
+</kw>
+<kw name="Then Service should return valid response code" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:52.918367" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_response_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:52.918367" elapsed="0.001051"/>
+</kw>
+<arg>404</arg>
+<status status="PASS" start="2024-05-13T13:37:52.918367" elapsed="0.001051"/>
+</kw>
+<kw name="AND Service should return a valid error response" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['detail']}</arg>
+<arg>${error_message}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:52.920401" elapsed="0.000000"/>
+</kw>
+<arg>Not found</arg>
+<status status="PASS" start="2024-05-13T13:37:52.919418" elapsed="0.000983"/>
+</kw>
+<doc>Invalid people id and response assertion</doc>
+<tag>test1</tag>
+<status status="PASS" start="2024-05-13T13:37:51.357217" elapsed="1.564152"/>
+</test>
+<test id="s1-s1-t4" name="4. Verify swapi /people service returns matching people's resources when searched by name" line="40">
+<kw name="Given swapi service is up and running" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:53.632000" level="INFO">GET Request : url=https://swapi.dev/api/people/ 
+ path_url=/api/people/ 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:53.632000" level="INFO">GET Response : url=https://swapi.dev/api/people/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:53 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:53.633014" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:52.923368" elapsed="0.709646"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:53.634021" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:53.633014" elapsed="0.001007"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:52.923368" elapsed="0.710653"/>
+</kw>
+<kw name="When I send request for people by name" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:54.314949" level="INFO">GET Request : url=https://swapi.dev/api/people/?search=Skywalker 
+ path_url=/api/people/?search=Skywalker 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:54.314949" level="INFO">GET Response : url=https://swapi.dev/api/people/?search=Skywalker 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:54 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"5e7b7f305ff69060313fd30192c16f94"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":3,"next":null,"previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"Anakin Skywalker","height":"188","mass":"84","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/44/","https://swapi.dev/api/vehicles/46/"],"starships":["https://swapi.dev/api/starships/39/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/65/"],"created":"2014-12-10T16:20:44.310000Z","edited":"2014-12-20T21:17:50.327000Z","url":"https://swapi.dev/api/people/11/"},{"name":"Shmi Skywalker","height":"163","mass":"unknown","hair_color":"black","skin_color":"fair","eye_color":"brown","birth_year":"72BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-19T17:57:41.191000Z","edited":"2014-12-20T21:17:50.401000Z","url":"https://swapi.dev/api/people/43/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:54.316961" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${swapi_people_url}?search=${name}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:53.635002" elapsed="0.681959"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-13T13:37:54.317997" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.316961" elapsed="0.001036"/>
+</kw>
+<arg>Skywalker</arg>
+<status status="PASS" start="2024-05-13T13:37:53.635002" elapsed="0.682995"/>
+</kw>
+<kw name="Then Service should return valid response code" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:54.319838" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_response_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.318825" elapsed="0.001013"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2024-05-13T13:37:54.318825" elapsed="0.001013"/>
+</kw>
+<kw name="AND total count should be correct" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-05-13T13:37:54.320836" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()['count']}</arg>
+<arg>${total_count_people}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.320836" elapsed="0.000000"/>
+</kw>
+<arg>3</arg>
+<status status="PASS" start="2024-05-13T13:37:54.319838" elapsed="0.000998"/>
+</kw>
+<kw name="AND Service should return results containing searched name" owner="SWAPIKeywords">
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-05-13T13:37:54.321835" level="INFO">Length is 3.</msg>
+<msg time="2024-05-13T13:37:54.321835" level="INFO">${results_count} = 3</msg>
+<var>${results_count}</var>
+<arg>${response.json()['results']}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.321835" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-13T13:37:54.322836" level="INFO">Luke Skywalker</msg>
+<arg>${response.json()['results'][${item}]['name']}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.322836" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.json()['results'][${item}]['name']}</arg>
+<arg>${name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.322836" elapsed="0.000000"/>
+</kw>
+<var name="${item}">0</var>
+<status status="PASS" start="2024-05-13T13:37:54.321835" elapsed="0.002002"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-13T13:37:54.323837" level="INFO">Anakin Skywalker</msg>
+<arg>${response.json()['results'][${item}]['name']}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.323837" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.json()['results'][${item}]['name']}</arg>
+<arg>${name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.324836" elapsed="0.000000"/>
+</kw>
+<var name="${item}">1</var>
+<status status="PASS" start="2024-05-13T13:37:54.323837" elapsed="0.000999"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-13T13:37:54.325836" level="INFO">Shmi Skywalker</msg>
+<arg>${response.json()['results'][${item}]['name']}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.325836" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.json()['results'][${item}]['name']}</arg>
+<arg>${name}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.325836" elapsed="0.000000"/>
+</kw>
+<var name="${item}">2</var>
+<status status="PASS" start="2024-05-13T13:37:54.324836" elapsed="0.001000"/>
+</iter>
+<var>${item}</var>
+<value>${results_count}</value>
+<status status="PASS" start="2024-05-13T13:37:54.321835" elapsed="0.005001"/>
+</for>
+<arg>Skywalker</arg>
+<status status="PASS" start="2024-05-13T13:37:54.321835" elapsed="0.005001"/>
+</kw>
+<doc>Search by valid people name and response assertion</doc>
+<tag>test1</tag>
+<status status="PASS" start="2024-05-13T13:37:52.922366" elapsed="1.404470"/>
+</test>
+<test id="s1-s1-t5" name="5. Verify swapi /people service returns no matching people when searched by invalid name" line="49">
+<kw name="Given swapi service is up and running" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:55.040140" level="INFO">GET Request : url=https://swapi.dev/api/people/ 
+ path_url=/api/people/ 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:55.040140" level="INFO">GET Response : url=https://swapi.dev/api/people/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:54 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:55.040140" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:54.328867" elapsed="0.711273"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:55.041200" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:55.041200" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:54.327840" elapsed="0.714358"/>
+</kw>
+<kw name="When I send request for people by name" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:55.681414" level="INFO">GET Request : url=https://swapi.dev/api/people/?search=no%20name 
+ path_url=/api/people/?search=no%20name 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:55.681414" level="INFO">GET Response : url=https://swapi.dev/api/people/?search=no%20name 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:55 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"4200165871240e4de02c79cbd62d9180"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":0,"next":null,"previous":null,"results":[]} 
+ </msg>
+<msg time="2024-05-13T13:37:55.681414" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${swapi_people_url}?search=${name}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:55.043137" elapsed="0.638277"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-13T13:37:55.682411" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-13T13:37:55.682411" elapsed="0.000000"/>
+</kw>
+<arg>no name</arg>
+<status status="PASS" start="2024-05-13T13:37:55.043137" elapsed="0.639274"/>
+</kw>
+<kw name="Then Service should return valid response code" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:55.685468" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_response_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:55.684419" elapsed="0.001049"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2024-05-13T13:37:55.683410" elapsed="0.002058"/>
+</kw>
+<kw name="AND total count should be correct" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2024-05-13T13:37:55.687729" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.json()['count']}</arg>
+<arg>${total_count_people}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2024-05-13T13:37:55.686608" elapsed="0.004087"/>
+</kw>
+<arg>0</arg>
+<status status="PASS" start="2024-05-13T13:37:55.686608" elapsed="0.004087"/>
+</kw>
+<kw name="AND Service should return empty results" owner="SWAPIKeywords">
+<kw name="Should Be Empty" owner="BuiltIn">
+<msg time="2024-05-13T13:37:55.693636" level="INFO">Length is 0.</msg>
+<arg>${response.json()['results']}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<status status="PASS" start="2024-05-13T13:37:55.692635" elapsed="0.001001"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:55.691638" elapsed="0.001998"/>
+</kw>
+<doc>Search by invalid request and response assertion</doc>
+<tag>test1</tag>
+<status status="PASS" start="2024-05-13T13:37:54.327840" elapsed="1.366795"/>
+</test>
+<test id="s1-s1-t6" name="6. Verify swapi /people service returns correct pagination urls" line="58">
+<kw name="Given swapi service is up and running" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:56.355984" level="INFO">GET Request : url=https://swapi.dev/api/people/ 
+ path_url=/api/people/ 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:56.355984" level="INFO">GET Response : url=https://swapi.dev/api/people/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:56 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:56.355984" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:55.697639" elapsed="0.658345"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:56.355984" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:56.355984" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:55.697639" elapsed="0.658345"/>
 </kw>
 <kw name="When I send request for people by page number" owner="SWAPIKeywords">
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2024-05-13T12:49:52.976430" level="INFO">GET Request : url=https://swapi.dev/api/people/?page=1 
+<msg time="2024-05-13T13:37:57.095404" level="INFO">GET Request : url=https://swapi.dev/api/people/?page=4 
+ path_url=/api/people/?page=4 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:57.095404" level="INFO">GET Response : url=https://swapi.dev/api/people/?page=4 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:57 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"ee0a0b3d946a118becf02585e5ff680d"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":82,"next":"https://swapi.dev/api/people/?page=5","previous":"https://swapi.dev/api/people/?page=3","results":[{"name":"Qui-Gon Jinn","height":"193","mass":"89","hair_color":"brown","skin_color":"fair","eye_color":"blue","birth_year":"92BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/28/","films":["https://swapi.dev/api/films/4/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":[],"created":"2014-12-19T16:54:53.618000Z","edited":"2014-12-20T21:17:50.375000Z","url":"https://swapi.dev/api/people/32/"},{"name":"Nute Gunray","height":"191","mass":"90","hair_color":"none","skin_color":"mottled green","eye_color":"red","birth_year":"unknown","gender":"male","homeworld":"https://swapi.dev/api/planets/18/","films":["https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/11/"],"vehicles":[],"starships":[],"created":"2014-12-19T17:05:57.357000Z","edited":"2014-12-20T21:17:50.377000Z","url":"https://swapi.dev/api/people/33/"},{"name":"Finis Valorum","height":"170","mass":"unknown","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"91BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/9/","films":["https://swapi.dev/api/films/4/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-19T17:21:45.915000Z","edited":"2014-12-20T21:17:50.379000Z","url":"https://swapi.dev/api/people/34/"},{"name":"Padmé Amidala","height":"185","mass":"45","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"46BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/39/","https://swapi.dev/api/starships/49/","https://swapi.dev/api/starships/64/"],"created":"2014-12-19T17:28:26.926000Z","edited":"2014-12-20T21:17:50.381000Z","url":"https://swapi.dev/api/people/35/"},{"name":"Jar Jar Binks","height":"196","mass":"66","hair_color":"none","skin_color":"orange","eye_color":"orange","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/"],"species":["https://swapi.dev/api/species/12/"],"vehicles":[],"starships":[],"created":"2014-12-19T17:29:32.489000Z","edited":"2014-12-20T21:17:50.383000Z","url":"https://swapi.dev/api/people/36/"},{"name":"Roos Tarpals","height":"224","mass":"82","hair_color":"none","skin_color":"grey","eye_color":"orange","birth_year":"unknown","gender":"male","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/4/"],"species":["https://swapi.dev/api/species/12/"],"vehicles":[],"starships":[],"created":"2014-12-19T17:32:56.741000Z","edited":"2014-12-20T21:17:50.385000Z","url":"https://swapi.dev/api/people/37/"},{"name":"Rugor Nass","height":"206","mass":"unknown","hair_color":"none","skin_color":"green","eye_color":"orange","birth_year":"unknown","gender":"male","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/4/"],"species":["https://swapi.dev/api/species/12/"],"vehicles":[],"starships":[],"created":"2014-12-19T17:33:38.909000Z","edited":"2014-12-20T21:17:50.388000Z","url":"https://swapi.dev/api/people/38/"},{"name":"Ric Olié","height":"183","mass":"unknown","hair_color":"brown","skin_color":"fair","eye_color":"blue","birth_year":"unknown","gender":"male","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/4/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/40/"],"created":"2014-12-19T17:45:01.522000Z","edited":"2014-12-20T21:17:50.392000Z","url":"https://swapi.dev/api/people/39/"},{"name":"Watto","height":"137","mass":"unknown","hair_color":"black","skin_color":"blue, grey","eye_color":"yellow","birth_year":"unknown","gender":"male","homeworld":"https://swapi.dev/api/planets/34/","films":["https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/"],"species":["https://swapi.dev/api/species/13/"],"vehicles":[],"starships":[],"created":"2014-12-19T17:48:54.647000Z","edited":"2014-12-20T21:17:50.395000Z","url":"https://swapi.dev/api/people/40/"},{"name":"Sebulba","height":"112","mass":"40","hair_color":"none","skin_color":"grey, red","eye_color":"orange","birth_year":"unknown","gender":"male","homeworld":"https://swapi.dev/api/planets/35/","films":["https://swapi.dev/api/films/4/"],"species":["https://swapi.dev/api/species/14/"],"vehicles":[],"starships":[],"created":"2014-12-19T17:53:02.586000Z","edited":"2014-12-20T21:17:50.397000Z","url":"https://swapi.dev/api/people/41/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:57.095404" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${swapi_people_url}?page=${page_no}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:56.356986" elapsed="0.738418"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-05-13T13:37:57.096396" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-05-13T13:37:57.095404" elapsed="0.000992"/>
+</kw>
+<arg>4</arg>
+<status status="PASS" start="2024-05-13T13:37:56.356986" elapsed="0.739410"/>
+</kw>
+<kw name="Then Service should return valid response code" owner="SWAPIKeywords">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:57.097352" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>${expected_response_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:57.097352" elapsed="0.000000"/>
+</kw>
+<arg>200</arg>
+<status status="PASS" start="2024-05-13T13:37:57.096396" elapsed="0.000956"/>
+</kw>
+<kw name="AND previous and next page urls be correct" owner="SWAPIKeywords">
+<if>
+<branch type="IF" condition="'${previous_page}'=='${EMPTY}'">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['previous']}</arg>
+<arg>None</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-05-13T13:37:57.099390" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-13T13:37:57.098352" elapsed="0.001038"/>
+</branch>
+<branch type="ELSE">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['previous']}</arg>
+<arg>${swapi_people_url}?page=${previous_page}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:57.099390" elapsed="0.000959"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:57.099390" elapsed="0.000959"/>
+</branch>
+<status status="PASS" start="2024-05-13T13:37:57.098352" elapsed="0.001997"/>
+</if>
+<if>
+<branch type="IF" condition="'${next_page}'=='${EMPTY}'">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['next']}</arg>
+<arg>None</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2024-05-13T13:37:57.101350" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2024-05-13T13:37:57.100349" elapsed="0.001001"/>
+</branch>
+<branch type="ELSE">
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()['next']}</arg>
+<arg>${swapi_people_url}?page=${next_page}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:57.101350" elapsed="0.000999"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:57.101350" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2024-05-13T13:37:57.100349" elapsed="0.002000"/>
+</if>
+<arg>3</arg>
+<arg>5</arg>
+<status status="PASS" start="2024-05-13T13:37:57.098352" elapsed="0.003997"/>
+</kw>
+<tag>test1</tag>
+<status status="PASS" start="2024-05-13T13:37:55.696635" elapsed="1.405714"/>
+</test>
+<test id="s1-s1-t7" name="7. Verify swapi /people service pagination boundaries" line="65">
+<kw name="Given swapi service is up and running" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:57.807716" level="INFO">GET Request : url=https://swapi.dev/api/people/ 
+ path_url=/api/people/ 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-05-13T13:37:57.807716" level="INFO">GET Response : url=https://swapi.dev/api/people/ 
+ status=200, reason=OK 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:57 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
+ </msg>
+<msg time="2024-05-13T13:37:57.807716" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${swapi_people_url}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-05-13T13:37:57.104453" elapsed="0.703263"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-05-13T13:37:57.808718" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-13T13:37:57.807716" elapsed="0.001002"/>
+</kw>
+<status status="PASS" start="2024-05-13T13:37:57.104453" elapsed="0.704265"/>
+</kw>
+<kw name="When I send request for people by page number" owner="SWAPIKeywords">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-05-13T13:37:58.483900" level="INFO">GET Request : url=https://swapi.dev/api/people/?page=1 
  path_url=/api/people/?page=1 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2024-05-13T12:49:52.976430" level="INFO">GET Response : url=https://swapi.dev/api/people/?page=1 
+<msg time="2024-05-13T13:37:58.483900" level="INFO">GET Response : url=https://swapi.dev/api/people/?page=1 
  status=200, reason=OK 
- headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 16:49:52 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:58 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"b493126da505af6fec015ec116fec193"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
  body={"count":82,"next":"https://swapi.dev/api/people/?page=2","previous":null,"results":[{"name":"Luke Skywalker","height":"172","mass":"77","hair_color":"blond","skin_color":"fair","eye_color":"blue","birth_year":"19BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/14/","https://swapi.dev/api/vehicles/30/"],"starships":["https://swapi.dev/api/starships/12/","https://swapi.dev/api/starships/22/"],"created":"2014-12-09T13:50:51.644000Z","edited":"2014-12-20T21:17:56.891000Z","url":"https://swapi.dev/api/people/1/"},{"name":"C-3PO","height":"167","mass":"75","hair_color":"n/a","skin_color":"gold","eye_color":"yellow","birth_year":"112BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:10:51.357000Z","edited":"2014-12-20T21:17:50.309000Z","url":"https://swapi.dev/api/people/2/"},{"name":"R2-D2","height":"96","mass":"32","hair_color":"n/a","skin_color":"white, blue","eye_color":"red","birth_year":"33BBY","gender":"n/a","homeworld":"https://swapi.dev/api/planets/8/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:11:50.376000Z","edited":"2014-12-20T21:17:50.311000Z","url":"https://swapi.dev/api/people/3/"},{"name":"Darth Vader","height":"202","mass":"136","hair_color":"none","skin_color":"white","eye_color":"yellow","birth_year":"41.9BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/13/"],"created":"2014-12-10T15:18:20.704000Z","edited":"2014-12-20T21:17:50.313000Z","url":"https://swapi.dev/api/people/4/"},{"name":"Leia Organa","height":"150","mass":"49","hair_color":"brown","skin_color":"light","eye_color":"brown","birth_year":"19BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/2/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/30/"],"starships":[],"created":"2014-12-10T15:20:09.791000Z","edited":"2014-12-20T21:17:50.315000Z","url":"https://swapi.dev/api/people/5/"},{"name":"Owen Lars","height":"178","mass":"120","hair_color":"brown, grey","skin_color":"light","eye_color":"blue","birth_year":"52BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:52:14.024000Z","edited":"2014-12-20T21:17:50.317000Z","url":"https://swapi.dev/api/people/6/"},{"name":"Beru Whitesun lars","height":"165","mass":"75","hair_color":"brown","skin_color":"light","eye_color":"blue","birth_year":"47BBY","gender":"female","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-10T15:53:41.121000Z","edited":"2014-12-20T21:17:50.319000Z","url":"https://swapi.dev/api/people/7/"},{"name":"R5-D4","height":"97","mass":"32","hair_color":"n/a","skin_color":"white, red","eye_color":"red","birth_year":"unknown","gender":"n/a","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":["https://swapi.dev/api/species/2/"],"vehicles":[],"starships":[],"created":"2014-12-10T15:57:50.959000Z","edited":"2014-12-20T21:17:50.321000Z","url":"https://swapi.dev/api/people/8/"},{"name":"Biggs Darklighter","height":"183","mass":"84","hair_color":"black","skin_color":"light","eye_color":"brown","birth_year":"24BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/1/","films":["https://swapi.dev/api/films/1/"],"species":[],"vehicles":[],"starships":["https://swapi.dev/api/starships/12/"],"created":"2014-12-10T15:59:50.509000Z","edited":"2014-12-20T21:17:50.323000Z","url":"https://swapi.dev/api/people/9/"},{"name":"Obi-Wan Kenobi","height":"182","mass":"77","hair_color":"auburn, white","skin_color":"fair","eye_color":"blue-gray","birth_year":"57BBY","gender":"male","homeworld":"https://swapi.dev/api/planets/20/","films":["https://swapi.dev/api/films/1/","https://swapi.dev/api/films/2/","https://swapi.dev/api/films/3/","https://swapi.dev/api/films/4/","https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":["https://swapi.dev/api/vehicles/38/"],"starships":["https://swapi.dev/api/starships/48/","https://swapi.dev/api/starships/59/","https://swapi.dev/api/starships/64/","https://swapi.dev/api/starships/65/","https://swapi.dev/api/starships/74/"],"created":"2014-12-10T16:16:29.192000Z","edited":"2014-12-20T21:17:50.325000Z","url":"https://swapi.dev/api/people/10/"}]} 
  </msg>
-<msg time="2024-05-13T12:49:52.978486" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-05-13T13:37:58.484900" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>url=${swapi_people_url}?page=${page_no}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-05-13T12:49:52.209753" elapsed="0.768733"/>
+<status status="PASS" start="2024-05-13T13:37:57.809717" elapsed="0.675183"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2024-05-13T12:49:52.979433" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-05-13T13:37:58.486896" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2024-05-13T12:49:52.979433" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-13T13:37:58.484900" elapsed="0.001996"/>
 </kw>
 <arg>1</arg>
-<status status="PASS" start="2024-05-13T12:49:52.209753" elapsed="0.769680"/>
+<status status="PASS" start="2024-05-13T13:37:57.808718" elapsed="0.679180"/>
 </kw>
 <kw name="Then Service should return valid response code" owner="SWAPIKeywords">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2024-05-13T12:49:52.981464" level="INFO">Argument types are:
+<msg time="2024-05-13T13:37:58.489899" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.status_code}</arg>
 <arg>${expected_response_code}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-13T12:49:52.980434" elapsed="0.001030"/>
+<status status="PASS" start="2024-05-13T13:37:58.488900" elapsed="0.000999"/>
 </kw>
 <arg>200</arg>
-<status status="PASS" start="2024-05-13T12:49:52.980434" elapsed="0.001030"/>
+<status status="PASS" start="2024-05-13T13:37:58.487898" elapsed="0.002001"/>
 </kw>
 <kw name="AND previous and next page urls be correct" owner="SWAPIKeywords">
 <if>
 <branch type="IF" condition="'${previous_page}'=='${EMPTY}'">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2024-05-13T12:49:52.984468" level="INFO">Argument types are:
+<msg time="2024-05-13T13:37:58.492908" level="INFO">Argument types are:
 &lt;class 'NoneType'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.json()['previous']}</arg>
 <arg>None</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-13T12:49:52.984468" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-13T13:37:58.491908" elapsed="0.001000"/>
 </kw>
-<status status="PASS" start="2024-05-13T12:49:52.983461" elapsed="0.001007"/>
+<status status="PASS" start="2024-05-13T13:37:58.491908" elapsed="0.001000"/>
 </branch>
 <branch type="ELSE">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${response.json()['previous']}</arg>
 <arg>${swapi_people_url}?page=${previous_page}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2024-05-13T12:49:52.985431" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-05-13T13:37:58.492908" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-05-13T12:49:52.984468" elapsed="0.000963"/>
+<status status="NOT RUN" start="2024-05-13T13:37:58.492908" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2024-05-13T12:49:52.983461" elapsed="0.001970"/>
+<status status="PASS" start="2024-05-13T13:37:58.491908" elapsed="0.001000"/>
 </if>
 <if>
 <branch type="IF" condition="'${next_page}'=='${EMPTY}'">
@@ -105,65 +800,65 @@
 <arg>${response.json()['next']}</arg>
 <arg>None</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2024-05-13T12:49:52.986428" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-05-13T13:37:58.493908" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-05-13T12:49:52.985431" elapsed="0.000997"/>
+<status status="NOT RUN" start="2024-05-13T13:37:58.492908" elapsed="0.001000"/>
 </branch>
 <branch type="ELSE">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${response.json()['next']}</arg>
 <arg>${swapi_people_url}?page=${next_page}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-13T12:49:52.986428" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-13T13:37:58.493908" elapsed="0.000999"/>
 </kw>
-<status status="PASS" start="2024-05-13T12:49:52.986428" elapsed="0.000000"/>
+<status status="PASS" start="2024-05-13T13:37:58.493908" elapsed="0.000999"/>
 </branch>
-<status status="PASS" start="2024-05-13T12:49:52.985431" elapsed="0.000997"/>
+<status status="PASS" start="2024-05-13T13:37:58.492908" elapsed="0.001999"/>
 </if>
 <arg>${EMPTY}</arg>
 <arg>2</arg>
-<status status="PASS" start="2024-05-13T12:49:52.982430" elapsed="0.005029"/>
+<status status="PASS" start="2024-05-13T13:37:58.490908" elapsed="0.003999"/>
 </kw>
 <kw name="When I send request for people by page number" owner="SWAPIKeywords">
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2024-05-13T12:49:53.711930" level="INFO">GET Request : url=https://swapi.dev/api/people/?page=9 
+<msg time="2024-05-13T13:37:59.148755" level="INFO">GET Request : url=https://swapi.dev/api/people/?page=9 
  path_url=/api/people/?page=9 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2024-05-13T12:49:53.711930" level="INFO">GET Response : url=https://swapi.dev/api/people/?page=9 
+<msg time="2024-05-13T13:37:59.148755" level="INFO">GET Response : url=https://swapi.dev/api/people/?page=9 
  status=200, reason=OK 
- headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 16:49:53 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"7f06357b2990e189b232f16657b428df"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
+ headers={'Server': 'nginx/1.16.1', 'Date': 'Mon, 13 May 2024 17:37:59 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Vary': 'Accept, Cookie', 'X-Frame-Options': 'SAMEORIGIN', 'ETag': '"7f06357b2990e189b232f16657b428df"', 'Allow': 'GET, HEAD, OPTIONS', 'Strict-Transport-Security': 'max-age=15768000'} 
  body={"count":82,"next":null,"previous":"https://swapi.dev/api/people/?page=8","results":[{"name":"Sly Moore","height":"178","mass":"48","hair_color":"none","skin_color":"pale","eye_color":"white","birth_year":"unknown","gender":"female","homeworld":"https://swapi.dev/api/planets/60/","films":["https://swapi.dev/api/films/5/","https://swapi.dev/api/films/6/"],"species":[],"vehicles":[],"starships":[],"created":"2014-12-20T20:18:37.619000Z","edited":"2014-12-20T21:17:50.496000Z","url":"https://swapi.dev/api/people/82/"},{"name":"Tion Medon","height":"206","mass":"80","hair_color":"none","skin_color":"grey","eye_color":"black","birth_year":"unknown","gender":"male","homeworld":"https://swapi.dev/api/planets/12/","films":["https://swapi.dev/api/films/6/"],"species":["https://swapi.dev/api/species/37/"],"vehicles":[],"starships":[],"created":"2014-12-20T20:35:04.260000Z","edited":"2014-12-20T21:17:50.498000Z","url":"https://swapi.dev/api/people/83/"}]} 
  </msg>
-<msg time="2024-05-13T12:49:53.711930" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-05-13T13:37:59.148755" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>url=${swapi_people_url}?page=${page_no}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-05-13T12:49:52.987459" elapsed="0.725469"/>
+<status status="PASS" start="2024-05-13T13:37:58.495910" elapsed="0.652845"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2024-05-13T12:49:53.713953" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-05-13T13:37:59.148755" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2024-05-13T12:49:53.712928" elapsed="0.002023"/>
+<status status="PASS" start="2024-05-13T13:37:59.148755" elapsed="0.001001"/>
 </kw>
 <arg>9</arg>
-<status status="PASS" start="2024-05-13T12:49:52.987459" elapsed="0.727492"/>
+<status status="PASS" start="2024-05-13T13:37:58.495910" elapsed="0.653846"/>
 </kw>
 <kw name="Then Service should return valid response code" owner="SWAPIKeywords">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2024-05-13T12:49:53.719947" level="INFO">Argument types are:
+<msg time="2024-05-13T13:37:59.150757" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.status_code}</arg>
 <arg>${expected_response_code}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-13T12:49:53.717937" elapsed="0.002010"/>
+<status status="PASS" start="2024-05-13T13:37:59.149756" elapsed="0.001001"/>
 </kw>
 <arg>200</arg>
-<status status="PASS" start="2024-05-13T12:49:53.716957" elapsed="0.004035"/>
+<status status="PASS" start="2024-05-13T13:37:59.149756" elapsed="0.001001"/>
 </kw>
 <kw name="AND previous and next page urls be correct" owner="SWAPIKeywords">
 <if>
@@ -172,51 +867,51 @@
 <arg>${response.json()['previous']}</arg>
 <arg>None</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2024-05-13T12:49:53.725970" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-05-13T13:37:59.151755" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-05-13T12:49:53.724936" elapsed="0.001034"/>
+<status status="NOT RUN" start="2024-05-13T13:37:59.151755" elapsed="0.000000"/>
 </branch>
 <branch type="ELSE">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${response.json()['previous']}</arg>
 <arg>${swapi_people_url}?page=${previous_page}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-13T12:49:53.725970" elapsed="0.000991"/>
+<status status="PASS" start="2024-05-13T13:37:59.152755" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-13T12:49:53.725970" elapsed="0.000991"/>
+<status status="PASS" start="2024-05-13T13:37:59.151755" elapsed="0.001000"/>
 </branch>
-<status status="PASS" start="2024-05-13T12:49:53.724936" elapsed="0.002025"/>
+<status status="PASS" start="2024-05-13T13:37:59.151755" elapsed="0.001000"/>
 </if>
 <if>
 <branch type="IF" condition="'${next_page}'=='${EMPTY}'">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
-<msg time="2024-05-13T12:49:53.728962" level="INFO">Argument types are:
+<msg time="2024-05-13T13:37:59.153756" level="INFO">Argument types are:
 &lt;class 'NoneType'&gt;
 &lt;class 'str'&gt;</msg>
 <arg>${response.json()['next']}</arg>
 <arg>None</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2024-05-13T12:49:53.727958" elapsed="0.001004"/>
+<status status="PASS" start="2024-05-13T13:37:59.153756" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2024-05-13T12:49:53.726961" elapsed="0.002001"/>
+<status status="PASS" start="2024-05-13T13:37:59.152755" elapsed="0.001001"/>
 </branch>
 <branch type="ELSE">
 <kw name="Should Be Equal As Strings" owner="BuiltIn">
 <arg>${response.json()['next']}</arg>
 <arg>${swapi_people_url}?page=${next_page}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="NOT RUN" start="2024-05-13T12:49:53.728962" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-05-13T13:37:59.153756" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2024-05-13T12:49:53.728962" elapsed="0.000000"/>
+<status status="NOT RUN" start="2024-05-13T13:37:59.153756" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2024-05-13T12:49:53.726961" elapsed="0.002001"/>
+<status status="PASS" start="2024-05-13T13:37:59.152755" elapsed="0.001001"/>
 </if>
 <arg>8</arg>
 <arg>${EMPTY}</arg>
-<status status="PASS" start="2024-05-13T12:49:53.722932" elapsed="0.006030"/>
+<status status="PASS" start="2024-05-13T13:37:59.151755" elapsed="0.003006"/>
 </kw>
 <tag>test</tag>
-<status status="PASS" start="2024-05-13T12:49:51.455477" elapsed="2.274496"/>
+<status status="PASS" start="2024-05-13T13:37:57.103349" elapsed="2.051412"/>
 </test>
 <doc>This test suite contains scenarios for validating the swapi service people endpoint.
 Following use cases are covered:
@@ -224,21 +919,23 @@ Test people endpoint returns total count of people with 10 results per page.
 Test people endpoint returns specific people resource per id passed in request.
 Test people endpoint returns 404 when searched by invalid people id.
 Test people endpoint returns matching people's resources when searched by name.
-Test people endpoint returns empty results when searched by missing name from star wars family.</doc>
-<status status="PASS" start="2024-05-13T12:49:51.302404" elapsed="2.429613"/>
+Test people endpoint returns empty results when searched by missing name from star wars family.
+Test people endpoint returns the correct pagination urls for previous and next pages.</doc>
+<status status="PASS" start="2024-05-13T13:37:47.704186" elapsed="11.451570"/>
 </suite>
-<status status="PASS" start="2024-05-13T12:49:51.276546" elapsed="2.458470"/>
+<status status="PASS" start="2024-05-13T13:37:47.676991" elapsed="11.481764"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 <stat pass="1" fail="0" skip="0">test</stat>
+<stat pass="6" fail="0" skip="0">test1</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="TestSuite">TestSuite</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="SWAPITests">TestSuite.SWAPITests</stat>
+<stat pass="7" fail="0" skip="0" id="s1" name="TestSuite">TestSuite</stat>
+<stat pass="7" fail="0" skip="0" id="s1-s1" name="SWAPITests">TestSuite.SWAPITests</stat>
 </suite>
 </statistics>
 <errors>

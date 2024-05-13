@@ -6,7 +6,7 @@ Documentation      This test suite contains scenarios for validating the swapi s
 ...                Test people endpoint returns 404 when searched by invalid people id.
 ...                Test people endpoint returns matching people's resources when searched by name.
 ...                Test people endpoint returns empty results when searched by missing name from star wars family.
-
+...                Test people endpoint returns the correct pagination urls for previous and next pages.
 
 Resource     ../Resources/SWAPIKeywords.robot
 
