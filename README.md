@@ -25,3 +25,24 @@ Test Suite is implemented in python using [Robotframework](https://robotframewor
 
 Sample log html report:
 ![swapitest_report](https://github.com/afreenbanu/starwarsapi_tests/assets/8961608/f915df39-7d2e-479b-aac8-77e2d0ddb30a)
+
+# Another Option is to use pytest and requests library to run api tests. Read about pytest here https://docs.pytest.org/en/8.2.x/
+
+# Requirements:
+1. Python v3.10+
+2. pip
+3. pytest
+
+# Installation for Mac and Linux:
+1. From root of this repository, run the following command:
+     > pip install -r requirements.txt
+2. To confirm installation, run below command. Result should include, requests, pytest
+     > pip list
+
+# How to run tests:
+1. Make sure Star Wars API service is up and running.
+2. From root of this repository, run below command:
+   > pytest test_swapi.py -v
+   
+Sample report:
+
