@@ -1,7 +1,7 @@
 # swapi_test
 Repository contains files needed to test the Star Wars API. The service endpoint is https://swapi.dev/api/
 
-# Implementation:
+# Option 1 - Implementation using RobotFramework:
 Test Suite is implemented in python using [Robotframework](https://robotframework.org/) and python requests are used to test the service endpoint. Test Cases are written in BDD format using Gherkin style. 
 
 # Requirements:
@@ -26,7 +26,7 @@ Test Suite is implemented in python using [Robotframework](https://robotframewor
 Sample log html report:
 ![swapitest_report](https://github.com/afreenbanu/starwarsapi_tests/assets/8961608/f915df39-7d2e-479b-aac8-77e2d0ddb30a)
 
-# Another Option is to use pytest and requests library to run api tests. Read about pytest here https://docs.pytest.org/en/8.2.x/
+# Option 2 - Implementation using pytest library to run api tests. Read about pytest here https://docs.pytest.org/en/8.2.x/
 
 # Requirements:
 1. Python v3.10+
